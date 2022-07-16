@@ -32,6 +32,7 @@
 		AB41D7CA2882DA340000B853 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AB41D7D02882DA340000B853 /* petslistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = petslistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB41D7D42882DA340000B853 /* petslistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petslistTests.swift; sourceTree = "<group>"; };
+		AB41D7ED2882DFD50000B853 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +74,7 @@
 		AB41D7C22882DA300000B853 /* petslist */ = {
 			isa = PBXGroup;
 			children = (
+				AB41D7ED2882DFD50000B853 /* Info.plist */,
 				AB41D7C32882DA300000B853 /* petslistApp.swift */,
 				AB41D7C52882DA300000B853 /* ContentView.swift */,
 				AB41D7C72882DA340000B853 /* Assets.xcassets */,
@@ -345,9 +347,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"petslist/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = petslist/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -372,9 +374,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"petslist/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = petslist/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
