@@ -9,15 +9,16 @@ import SwiftUI
 
 struct MainView: View {
   @StateObject var pets: PetsListViewModel
+  @AppStorage(DefaultKeys.isJSONLoaded) var isPetsLoaded: Bool = false
   
   var body: some View {
     ZStack {
       Color("BGColor")
         .edgesIgnoringSafeArea(.top)
-      if pets.isEmpty {
+      if !isPetsLoaded {
         PetsEmptyState
       }
-      if !pets.isEmpty {
+      if isPetsLoaded {
         PetsLoadedState
       }
     }

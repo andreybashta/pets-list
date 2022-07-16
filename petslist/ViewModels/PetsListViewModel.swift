@@ -20,17 +20,20 @@ final class PetsListViewModel: ObservableObject {
   }
   
   func reload() async {
+    //1. Start fetching
     isFetching = true
+    
+    //2. Get data
     let categories = await dataGetter.pets()
+    
+    //3. Stop fetchin animation
     isFetching = false
+    
+    //4. Set isLoaded flag to standard storage
+    dataGetter.defaultValues.set(true, forKey: DefaultKeys.isJSONLoaded)
+    
+    //5. Display to user
     self.categories = categories
-  }
-}
-
-//MARK: - Computed values
-extension PetsListViewModel {
-  var isEmpty: Bool {
-    categories.isEmpty
   }
 }
 
@@ -38,10 +41,15 @@ extension PetsListViewModel {
 fileprivate struct PetsListGetter {
   let network: NetworkServiceProtocol
   let decoder: DecoderServiceProtocol
+  let defaultValues: DefaultValues
   
-  init(network: NetworkServiceProtocol = NetworkService.init(), decoder: DecoderServiceProtocol = DecoderService.init()) {
+  init(network: NetworkServiceProtocol = NetworkService.init(),
+       decoder: DecoderServiceProtocol = DecoderService.init(),
+       defaultValues: DefaultValues = UserDefaults.standard
+  ) {
     self.network = network
     self.decoder = decoder
+    self.defaultValues = defaultValues
   }
   
   //Point, where we specity path for pets' json file

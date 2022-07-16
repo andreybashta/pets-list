@@ -13,6 +13,8 @@
 		AB332BAD2882FAE300EB1E9C /* PetsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB332BAC2882FAE300EB1E9C /* PetsListViewModel.swift */; };
 		AB332BB02882FF4F00EB1E9C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB332BAF2882FF4F00EB1E9C /* NetworkService.swift */; };
 		AB332BB22883053900EB1E9C /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB332BB12883053900EB1E9C /* Endpoints.swift */; };
+		AB332BB42883122900EB1E9C /* DefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB332BB32883122900EB1E9C /* DefaultKeys.swift */; };
+		AB332BB6288312F400EB1E9C /* DefaultValuesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB332BB5288312F400EB1E9C /* DefaultValuesService.swift */; };
 		AB41D7C42882DA300000B853 /* petslistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41D7C32882DA300000B853 /* petslistApp.swift */; };
 		AB41D7C62882DA300000B853 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41D7C52882DA300000B853 /* MainView.swift */; };
 		AB41D7C82882DA340000B853 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB41D7C72882DA340000B853 /* Assets.xcassets */; };
@@ -40,6 +42,8 @@
 		AB332BAC2882FAE300EB1E9C /* PetsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsListViewModel.swift; sourceTree = "<group>"; };
 		AB332BAF2882FF4F00EB1E9C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		AB332BB12883053900EB1E9C /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		AB332BB32883122900EB1E9C /* DefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultKeys.swift; sourceTree = "<group>"; };
+		AB332BB5288312F400EB1E9C /* DefaultValuesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultValuesService.swift; sourceTree = "<group>"; };
 		AB41D7C02882DA300000B853 /* Pets list.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pets list.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB41D7C32882DA300000B853 /* petslistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petslistApp.swift; sourceTree = "<group>"; };
 		AB41D7C52882DA300000B853 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -76,6 +80,7 @@
 			children = (
 				AB332BA12882F5E500EB1E9C /* DecoderService.swift */,
 				AB332BAF2882FF4F00EB1E9C /* NetworkService.swift */,
+				AB332BB5288312F400EB1E9C /* DefaultValuesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 			children = (
 				AB41D7F12882E4560000B853 /* PetCategory.swift */,
 				AB41D7F32882E46F0000B853 /* Pet.swift */,
+				AB332BB32883122900EB1E9C /* DefaultKeys.swift */,
 				AB332BB12883053900EB1E9C /* Endpoints.swift */,
 			);
 			path = Models;
@@ -270,11 +276,13 @@
 				AB41D7C62882DA300000B853 /* MainView.swift in Sources */,
 				AB332BAA2882F8F300EB1E9C /* PetDetailsView.swift in Sources */,
 				AB41D7F42882E46F0000B853 /* Pet.swift in Sources */,
+				AB332BB6288312F400EB1E9C /* DefaultValuesService.swift in Sources */,
 				AB332BA22882F5E500EB1E9C /* DecoderService.swift in Sources */,
 				AB332BB22883053900EB1E9C /* Endpoints.swift in Sources */,
 				AB332BB02882FF4F00EB1E9C /* NetworkService.swift in Sources */,
 				AB41D7F22882E4560000B853 /* PetCategory.swift in Sources */,
 				AB332BAD2882FAE300EB1E9C /* PetsListViewModel.swift in Sources */,
+				AB332BB42883122900EB1E9C /* DefaultKeys.swift in Sources */,
 				AB41D7C42882DA300000B853 /* petslistApp.swift in Sources */,
 				AB332BA82882F8EB00EB1E9C /* PetsListView.swift in Sources */,
 			);
