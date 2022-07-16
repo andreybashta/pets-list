@@ -9,8 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
   var body: some View {
-    Text("Hello, world!")
-      .padding()
+    ZStack {
+      Color("BGColor")
+        .edgesIgnoringSafeArea(.top)
+      Button("Load pets") {
+        print("Loading pets…")
+      }
+      .tint(.white)
+      .buttonStyle(.bordered)
+      .accessibilityValue("Load pets list")
+      .accessibilityHint("Do you want to load pets list? Just press button")
+    }
   }
 }
 
