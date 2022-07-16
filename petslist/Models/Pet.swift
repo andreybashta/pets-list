@@ -10,3 +10,10 @@ struct Pet: Codable {
   let fact: String?
   let image: String?
 }
+
+// MARK: - Mock
+extension Pet {
+  static var mock: Self {
+    .init(fact: "Fun kitty", image: nil)
+  }
+}

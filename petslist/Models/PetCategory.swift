@@ -15,3 +15,13 @@ struct PetCategory: Codable {
   let content: [Pet]?
 }
 
+extension PetCategory: Identifiable {
+  var id: String? { title }
+}
+
+// MARK: - Mock
+extension PetCategory {
+  static var mock: Self {
+    .init(title: "Foo", description: "Bar", image: "Kitty", order: 0, status: "paid", content: [Pet.mock])
+  }
+}

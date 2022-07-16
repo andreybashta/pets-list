@@ -11,7 +11,7 @@ import SwiftUI
 struct petslistApp: App {
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      MainView(pets: .init())
     }
   }
 }
