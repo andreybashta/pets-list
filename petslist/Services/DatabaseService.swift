@@ -9,9 +9,10 @@ import Foundation
 import RealmSwift
 
 protocol DatabaseServiceProtocol {
-  func store(_ obj: Object)
+  @MainActor func store(_ objects: [Object])
 }
 
+@MainActor
 final class DatabaseService: DatabaseServiceProtocol {
   private static var sharedDatabase: DatabaseService = {
     DatabaseService.init()
@@ -27,11 +28,10 @@ final class DatabaseService: DatabaseServiceProtocol {
   
   private let realm: Realm?
   
-  func store(_ obj: Object) {
-    print(Thread.current)
-    //Could crash on writing, if access Realm from incorrect thread. So used Thread.current for debugging
+  func store(_ objects: [Object]) {
     try? realm?.write { [weak self] in
-      self?.realm?.add(obj)
+      print(Thread.current)
+      self?.realm?.add(objects)
     }
   }
 }

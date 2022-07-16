@@ -13,10 +13,10 @@ import RealmSwift
 final class PetsListViewModel: ObservableObject {
   @ObservedResults(PetCategory.self) var categories
   @Published private(set) var isFetching = false
-  private let dataGetter: PetsListGetter
+  private let petsService: PetsListService
   
   init() {
-    self.dataGetter = .init()
+    self.petsService = .init()
   }
   
   func reload() async {
@@ -24,20 +24,21 @@ final class PetsListViewModel: ObservableObject {
     isFetching = true
 
     //2. Get data
-    _ = await dataGetter.loadPets()
+    let categories = await petsService.loadPets()
 
     //3. Stop fetchin animation
     isFetching = false
 
     //4. Set isLoaded flag to standard storage
-    dataGetter.defaultValues.set(true, forKey: DefaultKeys.isJSONLoaded)
+    petsService.defaultValues.set(true, forKey: DefaultKeys.isJSONLoaded)
 
     //5. Data is automatically displayed to user thanks to @ObservedResults property
+    DatabaseService.shared.store(categories)
   }
 }
 
 //MARK: - Viewmodel's helper to delegete networking/decoding responsibilities
-fileprivate struct PetsListGetter {
+fileprivate struct PetsListService {
   let network: NetworkServiceProtocol
   let decoder: DecoderServiceProtocol
   let defaultValues: DefaultValues

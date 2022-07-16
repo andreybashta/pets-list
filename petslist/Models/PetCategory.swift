@@ -46,6 +46,8 @@ final class PetCategory: Object, ObjectKeyIdentifiable, Decodable {
     self.order = try container.decode(Int.self, forKey: .order)
     self.status = try container.decode(String.self, forKey: .status)
     
+    print(Thread.current)
+    
     let content = try? container.decode([Pet].self, forKey: .content)
     //MARK: - Decoding array of objects
     //1. Initialize list
@@ -54,8 +56,6 @@ final class PetCategory: Object, ObjectKeyIdentifiable, Decodable {
     self.content.append(objectsIn: content ?? [])
     //3. Save to database. Use singleton directly for not injecting in to every model (could be 100+ models per project)
     
-    print(Thread.current)
-    DatabaseService.shared.store(self)
   }
 }
 
