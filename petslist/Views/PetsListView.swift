@@ -11,7 +11,7 @@ struct PetsCategoriesView: View {
   @ObservedObject var pets: PetsListViewModel
   
   var body: some View {
-    List(pets.categoriesw) { category in
+    List(pets.categories) { category in
       Text(category.title ?? .init())
     }
   }

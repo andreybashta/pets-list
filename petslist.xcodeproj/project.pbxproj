@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB332BA22882F5E500EB1E9C /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB332BA12882F5E500EB1E9C /* JSONDecoder.swift */; };
+		AB332BA22882F5E500EB1E9C /* DecoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB332BA12882F5E500EB1E9C /* DecoderService.swift */; };
 		AB332BA82882F8EB00EB1E9C /* PetsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB332BA72882F8EB00EB1E9C /* PetsListView.swift */; };
 		AB332BAA2882F8F300EB1E9C /* PetDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB332BA92882F8F300EB1E9C /* PetDetailsView.swift */; };
 		AB332BAD2882FAE300EB1E9C /* PetsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB332BAC2882FAE300EB1E9C /* PetsListViewModel.swift */; };
 		AB332BB02882FF4F00EB1E9C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB332BAF2882FF4F00EB1E9C /* NetworkService.swift */; };
+		AB332BB22883053900EB1E9C /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB332BB12883053900EB1E9C /* Endpoints.swift */; };
 		AB41D7C42882DA300000B853 /* petslistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41D7C32882DA300000B853 /* petslistApp.swift */; };
 		AB41D7C62882DA300000B853 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41D7C52882DA300000B853 /* MainView.swift */; };
 		AB41D7C82882DA340000B853 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB41D7C72882DA340000B853 /* Assets.xcassets */; };
@@ -33,11 +34,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AB332BA12882F5E500EB1E9C /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
+		AB332BA12882F5E500EB1E9C /* DecoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderService.swift; sourceTree = "<group>"; };
 		AB332BA72882F8EB00EB1E9C /* PetsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsListView.swift; sourceTree = "<group>"; };
 		AB332BA92882F8F300EB1E9C /* PetDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailsView.swift; sourceTree = "<group>"; };
 		AB332BAC2882FAE300EB1E9C /* PetsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsListViewModel.swift; sourceTree = "<group>"; };
 		AB332BAF2882FF4F00EB1E9C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		AB332BB12883053900EB1E9C /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		AB41D7C02882DA300000B853 /* Pets list.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pets list.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB41D7C32882DA300000B853 /* petslistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petslistApp.swift; sourceTree = "<group>"; };
 		AB41D7C52882DA300000B853 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -72,7 +74,7 @@
 		AB332BA42882F63000EB1E9C /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				AB332BA12882F5E500EB1E9C /* JSONDecoder.swift */,
+				AB332BA12882F5E500EB1E9C /* DecoderService.swift */,
 				AB332BAF2882FF4F00EB1E9C /* NetworkService.swift */,
 			);
 			path = Services;
@@ -159,6 +161,7 @@
 			children = (
 				AB41D7F12882E4560000B853 /* PetCategory.swift */,
 				AB41D7F32882E46F0000B853 /* Pet.swift */,
+				AB332BB12883053900EB1E9C /* Endpoints.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -267,7 +270,8 @@
 				AB41D7C62882DA300000B853 /* MainView.swift in Sources */,
 				AB332BAA2882F8F300EB1E9C /* PetDetailsView.swift in Sources */,
 				AB41D7F42882E46F0000B853 /* Pet.swift in Sources */,
-				AB332BA22882F5E500EB1E9C /* JSONDecoder.swift in Sources */,
+				AB332BA22882F5E500EB1E9C /* DecoderService.swift in Sources */,
+				AB332BB22883053900EB1E9C /* Endpoints.swift in Sources */,
 				AB332BB02882FF4F00EB1E9C /* NetworkService.swift in Sources */,
 				AB41D7F22882E4560000B853 /* PetCategory.swift in Sources */,
 				AB332BAD2882FAE300EB1E9C /* PetsListViewModel.swift in Sources */,

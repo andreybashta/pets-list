@@ -5,8 +5,11 @@
 //  Created by Bashta on 16.07.2022.
 //
 
+import Foundation
+
 // MARK: - PetCategory
-struct PetCategory: Codable {
+struct PetCategory {
+  let id: UUID = .init()
   let title: String?
   let description: String?
   let image: String?
@@ -15,8 +18,13 @@ struct PetCategory: Codable {
   let content: [Pet]?
 }
 
-extension PetCategory: Identifiable {
-  var id: String? { title }
+//MARK: - Conform to needed protocols
+extension PetCategory: Identifiable, Decodable {}
+
+extension PetCategory: Equatable {
+  static func == (lhs: PetCategory, rhs: PetCategory) -> Bool {
+    lhs.id == rhs.id
+  }
 }
 
 // MARK: - Mock

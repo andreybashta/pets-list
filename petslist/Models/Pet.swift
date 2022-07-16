@@ -5,11 +5,16 @@
 //  Created by Bashta on 16.07.2022.
 //
 
+import Foundation
+
 // MARK: - Pet
-struct Pet: Codable {
+struct Pet {
+  let id: UUID = .init()
   let fact: String?
   let image: String?
 }
+
+extension Pet: Decodable {}
 
 // MARK: - Mock
 extension Pet {
