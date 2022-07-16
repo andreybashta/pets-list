@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct MainView: View {
   @StateObject var pets: PetsListViewModel
@@ -46,6 +47,8 @@ extension MainView {
       }
       .tint(.white)
       .buttonStyle(.bordered)
+      .opacity(pets.isFetching ? 0.5 : 1)
+      .disabled(pets.isFetching) //to not allow user sending multiple requests
       .accessibilityValue("Load pets list")
       .accessibilityHint("Do you want to load pets list? Just press button")
       if pets.isFetching {
@@ -63,12 +66,7 @@ extension MainView {
 
 struct MainView_Previews: PreviewProvider {
   static var previews: some View {
-    //1
-    MainView(pets: .init(categories: [PetCategory.mock]))
     MainView(pets: .init())
-    //2
-    MainView(pets: .init(categories: [PetCategory.mock]))
-      .preferredColorScheme(.dark)
     MainView(pets: .init())
       .preferredColorScheme(.dark)
   }

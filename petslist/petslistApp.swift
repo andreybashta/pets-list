@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 @main
-struct petslistApp: App {
+struct petslistApp: SwiftUI.App {
   var body: some Scene {
     WindowGroup {
       MainView(pets: .init())
+        .environment(\.realmConfiguration, Realm.Configuration.defaultConfiguration)
     }
   }
 }

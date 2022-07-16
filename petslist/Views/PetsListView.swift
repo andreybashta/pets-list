@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct PetsCategoriesView: View {
   @ObservedObject var pets: PetsListViewModel
   
   var body: some View {
-    List(pets.categories) { category in
-      Text(category.title ?? .init())
+    NavigationView {
+      List(pets.categories.elements) { category in
+        Text(category.title ?? .init())
+      }
+      .navigationTitle(.init("Pets list"))
     }
   }
 }

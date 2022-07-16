@@ -6,28 +6,59 @@
 //
 
 import Foundation
+import RealmSwift
 
-// MARK: - PetCategory
-struct PetCategory {
-  let id: UUID = .init()
-  let title: String?
-  let description: String?
-  let image: String?
-  let order: Int?
-  let status: String?
-  let content: [Pet]?
-}
-
-//MARK: - Conform to needed protocols
-extension PetCategory: Identifiable, Decodable {}
-
-extension PetCategory: Equatable {
-  static func == (lhs: PetCategory, rhs: PetCategory) -> Bool {
-    lhs.id == rhs.id
+// MARK: - Pet
+final class PetCategory: Object, ObjectKeyIdentifiable, Decodable {
+  @Persisted(primaryKey: true) var _id: ObjectId
+  @Persisted var title: String?
+  @Persisted var details: String?
+  @Persisted var image: String?
+  @Persisted var order: Int?
+  @Persisted var status: String?
+  @Persisted var content = RealmSwift.List<Pet>()
+  
+  private enum CodingKeys: String, CodingKey {
+    case title, image, order, status, content
+    case details = "description"
+  }
+  
+  convenience init(title: String?, description: String?, image: String?, order: Int?, status: String?, content: [Pet]?) {
+    self.init()
+    
+    self.title = title
+    self.details = description
+    self.image = image
+    self.order = order
+    self.status = status
+    
+    //init, then append
+    self.content = .init()
+    self.content.append(objectsIn: content ?? [])
+  }
+  
+  public required convenience init(from decoder: Decoder) throws {
+    self.init()
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    self.title = try container.decode(String.self, forKey: .title)
+    self.details = try container.decode(String.self, forKey: .details)
+    self.image = try container.decode(String.self, forKey: .image)
+    self.order = try container.decode(Int.self, forKey: .order)
+    self.status = try container.decode(String.self, forKey: .status)
+    
+    let content = try? container.decode([Pet].self, forKey: .content)
+    //MARK: - Decoding array of objects
+    //1. Initialize list
+    self.content = .init()
+    //2. Append objects
+    self.content.append(objectsIn: content ?? [])
+    //3. Save to database. Use singleton directly for not injecting in to every model (could be 100+ models per project)
+    
+    print(Thread.current)
+    DatabaseService.shared.store(self)
   }
 }
 
-// MARK: - Mock
 extension PetCategory {
   static var mock: Self {
     .init(title: "Foo", description: "Bar", image: "Kitty", order: 0, status: "paid", content: [Pet.mock])

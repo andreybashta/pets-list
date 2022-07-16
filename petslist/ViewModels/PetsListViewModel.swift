@@ -7,33 +7,32 @@
 
 import Foundation
 import Combine
+import RealmSwift
 
 @MainActor //for publishing values to view on main thread
 final class PetsListViewModel: ObservableObject {
-  @Published private(set) var categories: [PetCategory]
+  @ObservedResults(PetCategory.self) var categories
   @Published private(set) var isFetching = false
   private let dataGetter: PetsListGetter
   
-  init(categories: [PetCategory] = .init()) {
-    self.categories = categories
+  init() {
     self.dataGetter = .init()
   }
   
   func reload() async {
     //1. Start fetching
     isFetching = true
-    
+
     //2. Get data
-    let categories = await dataGetter.pets()
-    
+    _ = await dataGetter.loadPets()
+
     //3. Stop fetchin animation
     isFetching = false
-    
+
     //4. Set isLoaded flag to standard storage
     dataGetter.defaultValues.set(true, forKey: DefaultKeys.isJSONLoaded)
-    
-    //5. Display to user
-    self.categories = categories
+
+    //5. Data is automatically displayed to user thanks to @ObservedResults property
   }
 }
 
@@ -52,11 +51,10 @@ fileprivate struct PetsListGetter {
     self.defaultValues = defaultValues
   }
   
-  //Point, where we specity path for pets' json file
-  func pets() async -> [PetCategory] {
+  //Point, where we specity path for pets' json file  
+  func loadPets() async -> [PetCategory] {
     try? await Task.sleep(nanoseconds: 1_000_000_000) //simulate delay
     guard let data = await network.fileData(for: Endpoints.jsonDB.0, and: Endpoints.jsonDB.1) else { return [] }
-    
     let items: [PetCategory] = decoder.decode(data) ?? []
     try? await Task.sleep(nanoseconds: 1_500_000_000)
     return items
