@@ -46,8 +46,6 @@ final class PetCategory: Object, ObjectKeyIdentifiable, Decodable {
     self.order = try container.decode(Int.self, forKey: .order)
     self.status = try container.decode(String.self, forKey: .status)
     
-    print(Thread.current)
-    
     let content = try? container.decode([Pet].self, forKey: .content)
     //MARK: - Decoding array of objects
     //1. Initialize list
@@ -56,6 +54,23 @@ final class PetCategory: Object, ObjectKeyIdentifiable, Decodable {
     self.content.append(objectsIn: content ?? [])
     //3. Save to database. Use singleton directly for not injecting in to every model (could be 100+ models per project)
     
+  }
+}
+
+//MARK: - Content mode
+extension PetCategory {
+  enum Mode: String {
+    case free, paid, coming
+  }
+}
+
+extension PetCategory {
+  var isPremium: Bool {
+    status == PetCategory.Mode.paid.rawValue
+  }
+  
+  var isComingSoon: Bool {
+    status == PetCategory.Mode.coming.rawValue
   }
 }
 

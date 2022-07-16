@@ -42,7 +42,7 @@ extension MainView {
     VStack {
       Text("Pets list")
         .font(.largeTitle)
-      Button("Press here or swipe") {
+      Button("Press here to download") {
         reloadPets()
       }
       .tint(.white)

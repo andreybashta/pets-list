@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct PetDetailsView: View {
+  let category: PetCategory
+  
   var body: some View {
-    Text("Pet's details")
+    VStack {
+      Text("Pet's details")
+      Text(category.title ?? "")
+    }
   }
 }
 
 struct PetDetailsView_Previews: PreviewProvider {
   static var previews: some View {
-    PetDetailsView()
+    PetDetailsView(category: .init())
   }
 }
