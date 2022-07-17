@@ -23,9 +23,9 @@ struct PetsCategoryRow: View {
       .cornerRadius(10)
       .clipped()
       VStack(alignment: .leading) {
-        Text(category.title ?? .init())
+        Text(category.title ?? "")
           .font(.title)
-        Text(category.details ?? .init())
+        Text(category.details ?? "")
           .font(.caption)
         Spacer()
         if category.isPremium {

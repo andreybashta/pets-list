@@ -52,8 +52,8 @@ final class PetCategory: Object, ObjectKeyIdentifiable, Decodable {
     self.content = .init()
     //2. Append objects
     self.content.append(objectsIn: content ?? [])
-    //3. Save to database. Use singleton directly for not injecting in to every model (could be 100+ models per project)
-    
+    //3. Save to database
+    DatabaseService().store([self])
   }
 }
 

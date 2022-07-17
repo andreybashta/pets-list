@@ -24,7 +24,7 @@ final class PetsListViewModel: ObservableObject {
     isFetching = true
 
     //2. Get data
-    let categories = await petsService.loadPets()
+    _ = await petsService.loadPets()
 
     //3. Stop fetchin animation
     isFetching = false
@@ -32,8 +32,7 @@ final class PetsListViewModel: ObservableObject {
     //4. Set isLoaded flag to standard storage
     petsService.defaultValues.set(true, forKey: DefaultKeys.isJSONLoaded)
 
-    //5. Data is automatically displayed to user thanks to @ObservedResults property
-    DatabaseService.shared.store(categories)
+    //5. Data is automatically displayed to user thanks to @ObservedResults property and saving to Realm at the end of decode process
   }
 }
 
