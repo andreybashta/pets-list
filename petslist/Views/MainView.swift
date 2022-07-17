@@ -14,7 +14,7 @@ struct MainView: View {
   
   var body: some View {
     ZStack {
-      Color("BGColor")
+      Color.bg
         .edgesIgnoringSafeArea(.top)
       if !isPetsLoaded {
         PetsEmptyState

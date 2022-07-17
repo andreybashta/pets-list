@@ -11,8 +11,9 @@ import RealmSwift
 struct PetsCategoriesView: View {
   @ObservedObject var pets: PetsListViewModel
   @State private var isAlertShow = false
-  @State private var isDetailsShow = false
   @State private var isAdShow = false
+  @State private var isDetailsShow = false
+  @State private var selectedCategory: PetCategory?
   
   var body: some View {
     ZStack {
@@ -28,10 +29,23 @@ struct PetsCategoriesView: View {
   var Content: some View {
     NavigationView {
       List(pets.categories.elements) { category in
-        NavigationLink(destination: PetDetailsView(category: category)) {
-          PetsCategoryRow(category: category)
+        if category.isPremium {
+          ZStack {
+            NavigationLink("", destination: PetDetailsView(category: selectedCategory ?? PetCategory.mock), isActive: $isDetailsShow)
+              .hidden()
+            Button(action: {
+              selectedCategory = category
+              isAlertShow = true
+            }) {
+              PetsCategoryRow(category: category)
+            }
+          }
+        } else {
+          NavigationLink(destination: PetDetailsView(category: category)) {
+            PetsCategoryRow(category: category)
+          }
+          .disabled(category.isComingSoon)
         }
-        .disabled(category.isComingSoon || category.isPremium)
       }
       .navigationTitle(.init("Pets list"))
     }

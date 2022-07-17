@@ -29,6 +29,8 @@
 		AB41D7F42882E46F0000B853 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB41D7F32882E46F0000B853 /* Pet.swift */; };
 		AB6840F928834395008E27B9 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AB6840F828834395008E27B9 /* Realm */; };
 		AB6840FB28834395008E27B9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AB6840FA28834395008E27B9 /* RealmSwift */; };
+		AB7AD59A288420F20010758A /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7AD599288420F20010758A /* ButtonStyles.swift */; };
+		AB7AD59D288423900010758A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7AD59C288423900010758A /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		AB41D7EF2882E37E0000B853 /* pets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pets.json; sourceTree = "<group>"; };
 		AB41D7F12882E4560000B853 /* PetCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCategory.swift; sourceTree = "<group>"; };
 		AB41D7F32882E46F0000B853 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		AB7AD599288420F20010758A /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		AB7AD59C288423900010758A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,8 @@
 				AB332BA42882F63000EB1E9C /* Services */,
 				AB41D7F52882E4C20000B853 /* Models */,
 				AB41D7EE2882E36F0000B853 /* DataSources */,
+				AB7AD598288420E50010758A /* Styles */,
+				AB7AD59B288423880010758A /* Extensions */,
 				AB41D7C72882DA340000B853 /* Assets.xcassets */,
 				AB41D7C92882DA340000B853 /* Preview Content */,
 			);
@@ -184,6 +190,22 @@
 				AB332BB12883053900EB1E9C /* Endpoints.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		AB7AD598288420E50010758A /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				AB7AD599288420F20010758A /* ButtonStyles.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		AB7AD59B288423880010758A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AB7AD59C288423900010758A /* Color.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +324,7 @@
 				AB332BAA2882F8F300EB1E9C /* PetDetailsView.swift in Sources */,
 				AB41D7F42882E46F0000B853 /* Pet.swift in Sources */,
 				AB332BB6288312F400EB1E9C /* DefaultValuesService.swift in Sources */,
+				AB7AD59D288423900010758A /* Color.swift in Sources */,
 				AB332BA22882F5E500EB1E9C /* DecoderService.swift in Sources */,
 				AB332BB22883053900EB1E9C /* Endpoints.swift in Sources */,
 				AB332BB02882FF4F00EB1E9C /* NetworkService.swift in Sources */,
@@ -310,6 +333,7 @@
 				AB332BB8288318A200EB1E9C /* DatabaseService.swift in Sources */,
 				AB332BB42883122900EB1E9C /* DefaultKeys.swift in Sources */,
 				AB41D7C42882DA300000B853 /* petslistApp.swift in Sources */,
+				AB7AD59A288420F20010758A /* ButtonStyles.swift in Sources */,
 				AB332BA82882F8EB00EB1E9C /* PetsListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

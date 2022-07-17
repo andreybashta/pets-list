@@ -14,8 +14,17 @@ struct PetDetailsView: View {
   var body: some View {
     VStack {
       if category.content.isEmpty == false {
-        Content
-        Controls
+        VStack {
+          ZStack {
+            Color.bg
+              .cornerRadius(16)
+            Content
+          }
+          .padding()
+          Controls
+            .padding(.horizontal)
+            .padding(.bottom)
+        }
       }
       if category.content.isEmpty {
         Text("Sorry, this category has not any added pets yet. Try it later")
@@ -26,14 +35,34 @@ struct PetDetailsView: View {
   }
   
   var Content: some View {
-    TabView(selection: $petSelection) {
-      ForEach(category.content.indices) { index in
-        let pet = category.content[index]
-        Text(pet.fact ?? "")
+    GeometryReader { geo in
+      TabView(selection: $petSelection) {
+        ForEach(category.content.indices) { index in
+          let pet = category.content[index]
+          VStack {
+            AsyncImage(url: URL(string: pet.image ?? "")) { image in
+              image
+                .resizable()
+                .scaledToFit()
+            } placeholder: {
+              Color.gray
+                .cornerRadius(16)
+            }
+            .frame(height: geo.size.height / 2)
+            .padding()
+            .clipped()
+            Text(pet.fact ?? "")
+              .foregroundColor(.white)
+              .bold()
+              .multilineTextAlignment(.center)
+              .padding(.horizontal)
+            Spacer()
+          }
           .id(index)
+        }
       }
+      .tabViewStyle(.page)
     }
-    .tabViewStyle(.page)
   }
   
   var Controls: some View {
@@ -43,6 +72,7 @@ struct PetDetailsView: View {
       } label: {
         Image(systemName: "arrowshape.turn.up.backward")
       }
+      .buttonStyle(RoundButton.style)
       .disabled(petSelection == 0)
       Spacer()
       Button {
@@ -50,6 +80,7 @@ struct PetDetailsView: View {
       } label: {
         Image(systemName: "arrowshape.turn.up.forward")
       }
+      .buttonStyle(RoundButton.style)
       .disabled(petSelection == category.content.endIndex - 1)
     }
   }
@@ -57,7 +88,7 @@ struct PetDetailsView: View {
 
 struct PetDetailsView_Previews: PreviewProvider {
   static var previews: some View {
-    PetDetailsView(category: .init())
+    //PetDetailsView(category: .init())
     PetDetailsView(category: .init(value: PetCategory.mock))
   }
 }

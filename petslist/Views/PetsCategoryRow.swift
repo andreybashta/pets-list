@@ -20,7 +20,7 @@ struct PetsCategoryRow: View {
         Color.gray
       }
       .frame(width: 100, height: 100)
-      .cornerRadius(10)
+      .cornerRadius(16)
       .clipped()
       VStack(alignment: .leading) {
         Text(category.title ?? "")

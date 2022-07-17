@@ -37,7 +37,7 @@ final class Pet: Object, ObjectKeyIdentifiable, Decodable {
 // MARK: - Mock
 extension Pet {
   static var mock: Self {
-    .init(fact: "Fun kitty", image: nil)
+    .init(fact: "Scholars have argued over the metaphysical interpretation of Dorothy’s pooch, Toto, in the Wizard of Oz. One theory postulates that Toto represents Anubis, the dog-headed Egyptian god of death, because Toto consistently keeps Dorothy from safely returning home.", image: nil)
   }
 }
 
